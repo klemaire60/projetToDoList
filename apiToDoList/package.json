@@ -1,0 +1,29 @@
+{
+  "name": "apitodolist",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klemaire60/projetToDoList.git"
+  },
+  "author": "klemaire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klemaire60/projetToDoList/issues"
+  },
+  "homepage": "https://github.com/klemaire60/projetToDoList#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.3",
+    "jsonwebtoken": "^9.0.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^3.1.0",
+    "validator": "^13.11.0"
+  }
+}
