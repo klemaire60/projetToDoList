@@ -3,9 +3,10 @@ async function fetchDataIfLoggedIn() {
     const token = localStorage.getItem('token'); // Récupérer le token JWT depuis le stockage local
     if (token) {
         await fetchData(); // Appeler fetchData uniquement si un token est présent
-        await fetchDataAccessoires();
     }
 }
+
+
 
 
 // Appeler la fonction fetchDataIfLoggedIn lorsque le DOM est entièrement chargé
@@ -14,26 +15,55 @@ document.addEventListener('DOMContentLoaded', fetchDataIfLoggedIn);
 // Fonction pour récupérer les données de l'API
 async function fetchData() {
     try {
-        const apiUrl = `http://192.168.64.243:3000`;
+        const apiUrl = `http://192.168.65.204:3000`;
         const response = await fetch(apiUrl);
         if (!response.ok){
             throw new Error('La requête a échoué');
         }
         const data = await response.json();
-        let select = document.getElementById("choix"); // Récupérer le menu déroulant
-        let select2 = document.getElementById("choix2"); // Récupérer le menu déroulant
+        let task1 = document.getElementById("tache1"); // Récupérer la tâche1
+        let task2 = document.getElementById("tache2"); // Récupérer la tâche2
+        
+//conceptualisation base:
+        app.get('/', async (req, res) => {
+            try {
+              const results = await query(`
+              SELECT taches FROM todo
+              `);
+          
+              res.json(results);
+            } catch (err) {
+              console.error('Erreur lors de l\'exécution de la requête MySQL:', err);
+              res.status(500).send('Erreur lors de la requête SQL');
+            }
+          });
+
+        app.post('/', async (req, res) => {
+            try {
+              const results = await query(`
+              INSERT INTO nottodo
+              UPDATE Todo SET
+              `);
+          
+              res.json(results);
+            } catch (err) {
+              console.error('Erreur lors de l\'exécution de la requête MySQL:', err);
+              res.status(500).send('Erreur lors de la requête SQL');
+            }
+          });
+
 
 
         // Effacer les options existantes
-        select.innerHTML = '';
-        select2.innerHTML = '';
+        task1.innerHTML = '';
+        task2.innerHTML = '';
 
 
         // Parcourir les données et ajouter des options au menu déroulant
         data.forEach(item => {
             let option = document.createElement("option");
-            option.value = item.nom;
-            option.text = item.nom;
+            option.value = item.name;
+            option.text = item.name;
             option.setAttribute('forcex', item.forcetest);
             option.setAttribute('vitessex', item.vitesse);
             option.setAttribute('defensex', item.defense);
@@ -60,32 +90,28 @@ async function fetchData() {
 ///////////////////////////////////////////////////////////
 async function fetchDataAccessoires() {
     try {
-        const apiUrlbis = `http://192.168.64.243:3000/Accessoires`;
+        const apiUrlbis = `http://192.168.65.204:3000/Dates`;
         const responsebis = await fetch(apiUrlbis);
         if (!responsebis.ok) {
             throw new Error('La requête a échoué');
         }
         const data = await responsebis.json();
-        let select3 = document.getElementById("choixA1"); // Récupérer le menu déroulant
-        let select4 = document.getElementById("choixA2"); // Récupérer le menu déroulant
+        let dateD = document.getElementById("date"); // Récupérer le menu déroulant
 
         // Effacer les options existantes
-        select3.innerHTML = '';
-        select4.innerHTML = '';
+        dateD.innerHTML = '';
 
         // Parcourir les données et ajouter des options au menu déroulant
         data.forEach(item => {
-            let option3 = document.createElement("option");
-            option3.value = item.nomA;
-            option3.text = item.nomA;
-            option3.setAttribute('bonusx', item.Bonus);
-            option3.setAttribute('malusx', item.Malus);
-            option3.setAttribute('effectsx', item.Effects);
+            let optionD = document.createElement("option");
+            optionD.value = item.temps;
+            optionD.text = item.temps;
+            optionD.setAttribute('tempsx', item.temps);
+            
          
             let option4 = option3.cloneNode(true);
 
-            select3.appendChild(option3);
-            select4.appendChild(option4);
+            selectD.appendChild(optionD);
         });
         
     } catch (error) {
@@ -200,4 +226,46 @@ function determineWinner(value3, value4, value5, value6, value7, value8, value9,
         document.getElementById('result').textContent = "Égalité!";
     }
 }
-      
+
+
+  
+/*
+<script>
+
+let connexionSubmit = document.getElementById("connexionSubmit");
+
+async function redirectIfLoggedIn() {
+  const token = localStorage.getItem('token');
+  if (token) {
+    const userData = await fetchData();
+    if (userData && userData.email) {
+      connexionSubmit.value = userData.email; // Remplacez la valeur du bouton par l'e-mail de l'utilisateur
+      connexionSubmit.innerHTML = userData.email;
+   
+    }
+  }
+}
+</script>
+*/
+const letoken = localStorage.getItem('token'); // Récupérer le token JWT depuis le stockage local
+var coucou = ({
+    message: "salut",
+    token: letoken
+}
+);
+
+console.log(coucou.message);
+
+/*
+<script>
+var button = document.getElementById('button1');
+
+// Cachez le bouton immédiatement lors du chargement de la page
+button.style.display = 'none';
+
+// Attendez 5 secondes avant d'afficher le bouton
+setTimeout(function() {
+    button.style.display = 'block';
+}, 3000); // 3000 millisecondes = 3 secondes
+</script>
+*/

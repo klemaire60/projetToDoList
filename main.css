@@ -1,0 +1,108 @@
+#result{
+    background: linear-gradient(to left, #000060, #850606);
+    color: #FFFFFF; font-size: 50px;
+    border-color: linear-gradient(to right, #000060, #850606);
+    border-radius: 7%;
+    float: left;
+    text-align: center;
+    margin-top: -6%;
+    margin-left: 44%;
+    padding: 1%;
+  
+}
+
+/*connexion/inscription*/
+.header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 10px;
+}
+
+body{
+    color: #FFFFFF;
+    
+}
+
+#container{
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url("Images/fond.jpg");
+    background-size: cover; /* Ajuster la taille de l'image pour remplir complètement la fenêtre du navigateur */
+    background-position: center; /* Positionner l'image au centre */
+    background-repeat: no-repeat; /* Empêcher la répétition de l'image */
+}
+
+.centered{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+      
+}
+
+
+#loginBtn,
+#registerBtn {
+    margin-left: 10px;
+}
+
+.hidden {
+    display: none;
+}
+
+.buttonform {
+    position: absolute;
+    top : 0;
+    bottom: 1;
+    right: 0;
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+#carte1{
+    text-align: left;
+    margin-top: 4.5%;
+    margin-left: 26.5%
+}
+
+#carte2{
+    text-align: right;
+    margin-top: -39.8%;
+    margin-right: 26.25%
+}
+
+#image1{
+    float: left;
+    margin-top: -1.8%;
+    margin-left: 0;
+    border-radius: 10%;
+    height:800px;
+    width: 470px;
+}
+
+#image2{
+    float: right;
+    margin-top: -41.25%;
+    margin-left: 0;
+    border-radius: 10%;
+    height: 800px;
+    width: 470px;
+}
+
+.gradient-button{
+    background: linear-gradient(to left, #000060, #850606);
+    color: #FFFFFF;
+    border-color: linear-gradient(to right, #000060, #850606);
+    border-radius: 7%;
+
+}
+
+#button1{
+    margin-left: 48%; padding: 6px;
+}

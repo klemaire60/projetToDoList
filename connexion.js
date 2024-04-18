@@ -23,7 +23,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
     const password = formData.get('password');
 
     try {
-        const response = await fetch('http://192.168.64.243:3000/register', {
+        const response = await fetch('http://192.168.65.204:3000/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -35,7 +35,7 @@ document.getElementById('registerForm').addEventListener('submit', async functio
 
         // Vérifier si un token a été reçu et rediriger vers la page index
         if (data.token) {
-            window.location.href = 'index.html'; // Redirection vers la page index
+            window.location.replace('http://192.168.65.204:3000/login'); // Redirection vers la page index
         }
 
     } catch (error) {
@@ -50,7 +50,7 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const password = formData.get('password');
 
     try {
-        const response = await fetch('http://192.168.64.243:3000/login', {
+        const response = await fetch('http://192.168.65.204:3000/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
