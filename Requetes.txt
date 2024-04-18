@@ -1,0 +1,17 @@
+/login
+    {
+        mail : mail,
+        password : password
+    }
+
+/register
+    {
+        mail : mail,
+        password : password
+    }
+
+/addTask
+    {
+        taskName : taskName,
+        userToken : userToken
+    }
