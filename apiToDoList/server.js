@@ -151,6 +151,22 @@ app.post('/removeTask', (req, res) => {
     })
 });
 
+app.get('/getTaskList', (req, res) => {
+    const {userToken} = req.body;
+
+    if(!userToken) return res.status(400).json({message : "Le token du user est requis"});
+
+    const sqlGetTask = 'SELECT name FROM Task WHERE idUser = (SELECT id FROM User WHERE token = ?)';
+    connection.query(sqlGetTask, [userToken], (err) => {
+        if(err) {
+            console.error('Erreur lors de la requete sql getTask\nErreur : ', err);
+            return res.status(500).json({message : "Erreur lors de la récupération des tâches"});
+        }
+
+        res.status(200).json({tasks : results});
+    })
+})
+
 app.listen(port, () => {
     console.log(`Le serveur est en écoute sur le port ${port}`);
 });

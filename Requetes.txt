@@ -1,17 +1,26 @@
-/login
+/login //POST
     {
         mail : mail,
         password : password
     }
 
-/register
+/register //POST
     {
         mail : mail,
         password : password
     }
 
-/addTask
+/addTask //POST
     {
         taskName : taskName,
         userToken : userToken
     }
+
+/removeTask //POST
+    {
+        taskName : taskName,
+        userToken : userToken
+    }
+return : 
+
+/getTaskList //GET
