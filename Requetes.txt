@@ -34,4 +34,4 @@ return :
 /getTaskList
     Méthode : GET
     Body : X
-    return : tasks : tasks[]
+    return : tasks : taskNames[]
