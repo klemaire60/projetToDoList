@@ -157,13 +157,15 @@ app.get('/getTaskList', (req, res) => {
     if(!userToken) return res.status(400).json({message : "Le token du user est requis"});
 
     const sqlGetTask = 'SELECT name FROM Task WHERE idUser = (SELECT id FROM User WHERE token = ?)';
-    connection.query(sqlGetTask, [userToken], (err) => {
+    connection.query(sqlGetTask, [userToken], (err, results) => {
         if(err) {
             console.error('Erreur lors de la requete sql getTask\nErreur : ', err);
             return res.status(500).json({message : "Erreur lors de la récupération des tâches"});
         }
 
-        res.status(200).json({tasks : results});
+        const taskNames = results.map(row => row.name);
+
+        res.status(200).json({tasks : taskNames});
     })
 })
 

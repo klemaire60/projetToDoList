@@ -1,26 +1,37 @@
-/login //POST
+/login
+    Méthode : POST
+    Body : JSON =>
     {
         mail : mail,
         password : password
     }
 
-/register //POST
+/register
+    Méthode : POST
+    Body : JSON =>
     {
         mail : mail,
         password : password
     }
 
-/addTask //POST
+/addTask
+    Méthode : POST
+    Body : JSON =>
     {
         taskName : taskName,
         userToken : userToken
     }
 
-/removeTask //POST
+/removeTask 
+    Méthode : POST
+    Body : JSON =>
     {
         taskName : taskName,
         userToken : userToken
     }
 return : 
 
-/getTaskList //GET
+/getTaskList
+    Méthode : GET
+    Body : X
+    return : tasks : tasks[]
