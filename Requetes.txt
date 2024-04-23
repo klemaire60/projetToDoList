@@ -1,11 +1,3 @@
-/login
-    Méthode : POST
-    Body : JSON =>
-    {
-        mail : mail,
-        password : password
-    }
-
 /register
     Méthode : POST
     Body : JSON =>
@@ -13,6 +5,46 @@
         mail : mail,
         password : password
     }
+return : 
+    Réussite : JSON =>
+        {   
+            message : message,
+            token : token
+        }
+    Echec : JSON => 
+        {
+            message : message      
+        }
+
+/login
+    Méthode : POST
+    Body : JSON =>
+    {
+        mail : mail,
+        password : password
+    }
+return : 
+    Réussite : JSON =>
+        {   
+            message : message,
+            token : token
+        }
+    Echec : JSON => 
+        {
+            message : message      
+        }
+
+/disconnect
+    Méthode : POST
+    Body : JSON =>
+    {
+        token : token
+    }
+return : 
+    Réussite & Echec : JSON =>
+        {   
+            message : message,
+        }
 
 /addTask
     Méthode : POST
@@ -21,6 +53,11 @@
         taskName : taskName,
         userToken : userToken
     }
+return : 
+    Réussite & Echec : JSON =>
+        {   
+            message : message,
+        }
 
 /removeTask 
     Méthode : POST
@@ -30,8 +67,37 @@
         userToken : userToken
     }
 return : 
+    Réussite & Echec : JSON =>
+        {   
+            message : message,
+        }
 
 /getTaskList
     Méthode : GET
     Body : X
-    return : tasks : taskNames[]
+return : 
+    Réussite : JSON =>
+        {   
+            message : message
+        }
+    Echec : JSON => 
+        {
+            tasks : taskNames[]   
+        }
+    //taskNames est un tableau avec le nom de chaque taches
+
+/VerifyToken
+    Méthode : POST
+    Body : JSON =>
+    {
+        token : token
+    }
+return : 
+    Réussite : JSON =>
+        {
+            isTokenValid : True/False
+        }
+    Echec : JSON => 
+        {
+            message : message
+        }
