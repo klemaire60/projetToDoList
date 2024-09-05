@@ -126,8 +126,8 @@ app.post('/disconnect', (req, res) => {
     
     connection.query(sqlDisconnect, [token], (err) => {
         if(err) {
-            console.error('Erreur lors de la requete sql login\nErreur : ', err);
-            return res.status(500).json({message : "erreur lors de la connexion"});
+            console.error('Erreur lors de la requete sql disconnect\nErreur : ', err);
+            return res.status(500).json({message : "erreur lors de la déconnexion"});
         }
         return res.status(200).json({message : "Utilisateur déconnecté"});
     })
